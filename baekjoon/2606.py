@@ -10,7 +10,6 @@ graph = [[0]*(n+1) for i in range(n+1)]
 # 방문한 곳 체크할 리스트
 visited = [0]*(n+1)
 
-# 입력받는 값에 대해 0행렬에 1 삽입(인접 리스트 생성)
 for i in range(m):
     a, b = map(int, input().split())
     graph[a]+=[b]
@@ -26,6 +25,6 @@ def bfs(graph, start, visited):
             if(visited[i]==0):
                 queue.append(i)
                 visited[i] = 1
-    print(sum(visited) - 1)
+    print(sum(visited) - 2)
 
 bfs(graph, 1, visited)
