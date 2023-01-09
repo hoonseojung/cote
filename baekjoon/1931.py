@@ -1,19 +1,19 @@
 n = int(input())
-start = []
-end = []
+time_table = []
+
 for _ in range(n):
   s, e = list(map(int, input().split()))
-  start.append(s)
-  end.append(e)
+  time_table.append([s, e])
 
-def find_next(k):
-  ss = [i for i, v in enumerate(start) if v == k]
+time_table = sorted(time_table, key=lambda x: (x[1], x[0]))
+# 회의 시작 시간이 빠른 순서대로, 회의 종료 시간이 빠른 순서대로 정렬
 
-  se = 9999
-  for i in range(len(ss)):
-    if end[ss[i]] < se:
-      se = end[ss[i]] # start의 최소값인 index들 중 end의 최소값 (start[ss[i]], se)
+count = 1 # 회의 개수
+start = time_table[0][0] # 시작
+end = time_table[0][1] # 종료
+for i in range(1, n):
+  if end <= time_table[i][0]: # 종료 시간과 시작 시간이 동시인 경우도 존재
+    end = time_table[i][1]
+    count += 1
 
-  return ss[i] # 결국 최소값인 index
-
-index = find_next(min(start)) # 시작
+print(count)
