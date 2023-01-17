@@ -14,7 +14,7 @@ for i in range(m):
     a, b = map(int, input().split())
     graph[a]+=[b]
     graph[b]+=[a] # 양방향 연결
-
+    
 def bfs(graph, start, visited):
     queue = deque([start])
     visited[start] = 1
