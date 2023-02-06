@@ -2,7 +2,7 @@ n = int(input())
 graph = [list(map(int, input())) for _ in range(n)]
 result = ""
 # 4개로 분할해서 확인
-def check_graph(m, g): # m = (n/2)^k, color_paper = 색종이 중 확인할 부분
+def check_graph(m, g): # m = (n/2)^k, g = 그래프 중 확인할 부분
     global result
     check = 0
     for i in range(m):
