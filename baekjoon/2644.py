@@ -9,6 +9,8 @@ for _ in range(n):
     people[p].append(c)
     people[c].append(p) # 연결된 노드
 
+print(people)
+
 def dfs(v, num):
     global ans
     num += 1 # 한 촌 수씩 증가
@@ -19,6 +21,7 @@ def dfs(v, num):
 
     for i in people[v]:
         if not visited[i]:
+            print(i)
             dfs(i, num)
 dfs(a, 0)
 print(ans)
