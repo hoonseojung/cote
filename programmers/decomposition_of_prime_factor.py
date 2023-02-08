@@ -5,4 +5,6 @@ def solution(n):
             while n % i == 0:
                 n //=i
             answer.append(i)
+        if n == 1:
+            break
     return answer
