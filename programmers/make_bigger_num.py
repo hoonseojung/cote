@@ -26,4 +26,4 @@ def solution(number, k):
     # 이럴 때 답은 뒷 숫자를 k개만큼 없애준 1000이므로 (len(number) - k)만큼 슬라이싱
     answer = ''.join(answer[:len(number)-k])
     
-    return answer
+    return answer 
