@@ -7,5 +7,5 @@ def solution(i, j, k):
         x = [int(a) for a in str(num)]
         for y in x:
             if y == k:
-                answer+=1
+                answer += 1
     return answer
