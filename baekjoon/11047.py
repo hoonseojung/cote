@@ -14,5 +14,5 @@ for i in range(n):
     if k // cost[n-1-i] > 0: # 몫이 0보다 크다면 = 나눌 수 있다면
         answer += k // cost[n-1-i]
         k = k % cost[n-1-i]
-
+ 
 print(answer)
