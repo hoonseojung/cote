@@ -1,7 +1,7 @@
 N, W = map(int, input().split())
 
 bag_list = [[] * N for i in range(N)]
-
+ 
 for i in range(N):
     n, w = map(int, input().split())
     bag_list[i] = (n, w)
