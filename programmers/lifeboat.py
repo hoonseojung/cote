@@ -3,7 +3,7 @@ def solution(people, limit):
     people.sort()
     light = 0
     heavy = len(people) - 1
-    
+   
     for _ in range(len(people)):
         if light <= heavy:
             if (people[light] + people[heavy]) <= limit: 

@@ -10,5 +10,5 @@ def solution(id_list, report, k):
         do, done = r.split()
         if reported[done] >= k:
             answer[id_list.index(do)] += 1
-            
+
     return answer

@@ -40,7 +40,7 @@ date = int(input())
 
 #     print(answer)
 # 또 시간 초과,,,
-
+ 
 # for _ in range(date):
 #     answer = 0
 #     n = int(input())

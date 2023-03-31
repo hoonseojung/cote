@@ -1,7 +1,7 @@
 def solution(progresses, speeds):
     answer = []
     when = []
-    count = 1
+    count = 1 # 초기값
     length = len(progresses)
     
     for i in range(length): # 작업 별 끝날 때까지 걸리는 시간을 담은 배열

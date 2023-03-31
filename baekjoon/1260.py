@@ -10,7 +10,7 @@ matrix = [[0]*(N+1) for i in range(N+1)]
 visited_dfs = [0]*(N+1)
 visited_bfs = [0]*(N+1)
 
-# 입력받는 값에 대해 0행렬에 1 삽입(인접 리스트 생성)
+# 입력받는 값에 대해 0행렬에 1 삽입(인접 리스트 생성) 
 for i in range(M):
     a, b = map(int, input().split())
     matrix[a][b] = matrix[b][a] = 1 # 양방향이기 때문에 [a][b] = [b][a] 둘 다 처리, 입력 받은대로 처리하기에 각각 index가 0인 행과 열은 모두 0

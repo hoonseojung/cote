@@ -12,7 +12,7 @@ def solution(n, lost, reserve):
 
     for lost_person in lost[:]:
         for people in reserve[:]:
-            if (people==lost_person-1) or (people==lost_person+1): # 본인 앞뒤
+            if (people==lost_person-1) or (people==lost_person+1): # 본인 앞 뒤
                 lost.remove(lost_person)
                 reserve.remove(people)
                 break

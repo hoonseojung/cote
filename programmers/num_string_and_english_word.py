@@ -3,5 +3,5 @@ def solution(s):
     i = 0
     for alphabet in eng:
         s = s.replace(alphabet, str(i))
-        i+=1
+        i += 1
     return(int(s))

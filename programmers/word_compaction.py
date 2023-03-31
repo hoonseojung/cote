@@ -7,7 +7,7 @@ def solution(s):
             result = [s[i:i+k] for i in range(0, len(s), k)]
             count = 1
             for j in range(len(result)-1):
-                if result[j] == result[j+1]:
+                if result[j] == result[j + 1]:
                     count+=1
                     if j == len(result)-2:
                         if count != 1:
