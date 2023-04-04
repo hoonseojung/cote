@@ -6,7 +6,7 @@ for i in range(M):
     x, y, m, s, d = list(map(int, input().split()))
     fire_ball.append([x-1, y-1, m, s, d])
 
-# (x, y) 좌표 격자에서 위/아래 = x, 왼쪽/오른쪽 = y
+# (x, y) 좌표 격자에서 위/아래 = x, 왼쪽/오른쪽 = y 
 dx = [-1, -1, 0, 1, 1, 1, 0, -1]
 dy = [0, 1, 1, 1, 0, -1, -1, -1]
 # 방향 0  1  2  3  4   5  6   7
