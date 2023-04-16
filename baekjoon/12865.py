@@ -6,7 +6,7 @@ for i in range(N):
     n, w = map(int, input().split())
     bag_list[i] = (n, w)
 
-bag_list.sort(key=lambda x:x[1], reverse=True)
+bag_list.sort(key=lambda x: -x[1])
 
 weight = 0
 value = 0
