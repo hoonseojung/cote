@@ -2,8 +2,8 @@ N = int(input()) # 지도의 크기
 
 graph = [list(map(int, input())) for _ in range(N)] # 배열 생성
 visited = [[0 for _ in range(N)] for _ in range(N)]
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
 
 count = []
 cnt = 0
