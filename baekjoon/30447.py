@@ -38,7 +38,16 @@ x1, y1 = map(int, input().split())
 x2, y2 = map(int, input().split())
 area = x * y
 
-# 기울기가 양수 -> 
+if x < y:
+    x, y = y, x
+    x1, y1 = y1, x1
+    x2, y2 = y2, x2
+
+if x1 < x2:
+    x1, x2 = x2, x1
+    y1, y2 = y2, y1
+
+# 기울기가 양수 -> 음수가 되도록 대칭 이동
 
 # 가로가 더 길고, x1 > x2라는 전제 하에
 # 기울기가 음수에서
@@ -71,11 +80,13 @@ area = x * y
 #       접는 선보다 (x, 0)이 아래에 있다면
 #       - (y1 + y2) * x * 1/2
 #       + ((nx, ny)와 (0, y2) 두 점을 지나는 직선이 Y=y와 만나는 x 좌표 - (x, 0) 점을 선대칭 시킨 (x'', y'')와 (nx, ny) 두 점을 지나는 직선이 Y=y와 만나는 x 좌표) * (ny-y) * 1/2
-#       + (x, 0) 점을 선대칭 시킨 (x'', y'')와 (nx, ny) 두 점을 지나는 직선이 X=x와 만나는 (y 좌표 - y2) * (x''-x) * 1/2
+#       + (x, 0) 점을 선대칭 시킨 (x'', y'')와 (nx, ny) 두 점을 지나는 직선이 X=x와 만나는 (y 좌표 - y1) * (x''-x) * 1/2
 
 #       접는 선보다 (x, 0)이 위에 있다면
 #       - x1 * y2 * 1/2
 #       + ((nx, ny)와 (0, y2) 두 점을 지나는 직선이 Y=y와 만나는 x 좌표 - (x1, 0)과 (nx, ny) 두 점을 지나는 직선이 Y=y와 만나는 x 좌표) * (ny-y) * 1/2
+
+
 
 if x1 == x2: # 직선 |
     if x1 <= (x-x1):
@@ -88,6 +99,16 @@ elif y1 == y2: # 직선 -
     else:
         area -= (x * (y-y1))
 else:
+    if (y2-y1)/(x2-x1) > 0: # 기울기 > 0
+        if up_or_down(x1, y1, x2, y2, x/2, y/2): # X=x/2에 대해 대칭 이동
+            x1, x2 = x-x2, x-x1
+            y1, y2 = y2, y1
+        else: # Y=y/2에 대해 대칭 이동
+            y1, y2 = y-y1, y-y2
+    else: # 기울기 < 0
+        if not up_or_down(x1, y1, x2, y2, x/2, y/2): # 중점보다 접는 선이 위에 있으면 중점에 대해 대칭 이동
+            x1, x2 = x-x2, x-x1
+            y1, y2 = y-y2, y-y1
     nx, ny = new_dot(x1, y1, x2, y2, 0, 0) # (0, 0) 선대칭한 점
     if (nx > x) and (ny < y): # case 1
         x_hat, y_hat = new_dot(x1, y1, x2, y2, 0, y)
@@ -125,7 +146,7 @@ else:
                 xxxx = x_intercept(x_2hat, y_2hat, nx, ny, y)
                 area += (xxxx-xxx) * (ny-y) * 1/2
                 yyy = y_intercept(x_2hat, y_2hat, nx, ny, x)
-                area += (yyy-y2) * (x_2hat-x) * 1/2
+                area += (yyy-y1) * (x_2hat-x) * 1/2
         else:
             area -= (x1 + x2) * y * 1/2
             xxx = x_intercept(nx, ny, x1, 0, y)
