@@ -8,10 +8,17 @@ def dist_cal(a, b): # (x1, y1), (x2, y2) 두 점을 지나는 직선과 점 (a, 
     return abs(m*a - b + c)/math.sqrt(m**2 + 1)
 
 def new_dot(x_1, y_1, x_2, y_2, a, b): # (x_1, y_1), (x_2, y_2) 두 점을 지나는 직선에 대해 점 (a, b) 선대칭
+    # m = (y_1 - y_2) / (x_1 - x_2)
+    # c = y_1 - (m * x_1)
+    # nx = a - 2*m*(m * a - b + c) / (m**2 + 1)
+    # ny = b + 2*(m * a - b + c) / (m**2 + 1)
+    # return (nx, ny)
     m = (y_1 - y_2) / (x_1 - x_2)
-    c = y_1 - (m * x_1)
-    nx = a - 2*m*(m * a - b + c) / (m**2 + 1)
-    ny = b + 2*(m * a - b + c) / (m**2 + 1)
+
+    # 대칭 이동된 점의 좌표 계산
+    nx = (b * m**2 + a - x_1 * m + y_1 * m) / (m**2 + 1)
+    ny = (m * (b + m * (a - x_1)) + y_1) / (m**2 + 1)
+
     return (nx, ny)
 
 def x_intercept(a, b, c, d, e): # (a, b) (c, d) 두 점을 지나는 직선의 y=e일 때 x 값
@@ -26,8 +33,7 @@ def y_intercept(a, b, c, d, e): # (a, b) (c, d) 두 점을 지나는 직선의 x
 
 def up_or_down(a, b, c, d, e, f): # 점 (e, f)가 (a, b) (c, d) 두 점을 지나는 직선보다 위에 있다면 True, 아래에 있다면 False
     # y = (d-b)/(c-a)*(x-a) + b
-    if f < ((d-b)/(c-a)*(e-a) + b): return False
-    else: return True
+    return f >= ((d-b)/(c-a)*(e-a) + b)
  
 def dot_distance(a, b, c, d): # (a, b), (c, d) 두 점 사이의 거리
     return math.sqrt((a-c)**2 + (b-d)**2)
