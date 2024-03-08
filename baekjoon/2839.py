@@ -9,6 +9,5 @@ while n >= 0:
   else: # 나눠 떨어지지 않는다면
     n -= 3 # 3kg
     count += 1
-
 if n < 0:
   print(-1)
