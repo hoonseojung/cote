@@ -81,66 +81,6 @@
 
 #   year += 1
 
-
-# from pprint import pprint
-# import sys
-# sys.setrecursionlimit(10**5)
-# input = sys.stdin.readline
-
-# N, M = map(int, input().split())
-# iceberg = list()
-# for _ in range(N):
-#   iceberg.append(list(map(int, input().split())))
-# visited = [[0 for _ in range(M)] for _ in range(N)]
-
-# dx = [-1, 1, 0, 0]
-# dy = [0, 0, -1, 1]
-# year = 1
-
-# def dfs(x, y):
-#   for i in range(4):
-#     nx = x + dx[i]
-#     ny = y + dy[i]
-#     if (0 <= nx < M and 0 <= ny < N) and (visited[ny][nx] == 1):
-#       visited[ny][ny] = 0
-#       if iceberg[ny][nx] > 0:
-#         dfs(nx, ny)
-
-# while True:
-#   for i in range(M):
-#     for j in range(N):
-#       if iceberg[j][i] > 0:
-#         visited[j][i] = 1
-#         ice = iceberg[j][i]
-#         for k in range(4):
-#           nx = i + dx[k]
-#           ny = j + dy[k]
-#           if (0 <= nx < M and 0 <= ny < N) and (visited[ny][nx] == 0):
-#             if iceberg[ny][nx] == 0:
-#               ice -= 1
-#               if ice == 0: break
-#         iceberg[j][i] = ice
-  
-#   count = 0
-
-#   for i in range(M):
-#     for j in range(N):
-#       if iceberg[j][i] > 0 and visited[j][i] == 1:
-#         dfs(i, j)
-#         count += 1
-#       elif iceberg[j][i] == 0 and visited[j][i] == 1:
-#         visited[j][i] = 0
-#   pprint(iceberg)
-#   if count >= 2:
-#     print(year)
-#     break
-#   elif count == 0:
-#     print(0)
-#     break
-  
-#   year += 1
-
-
 import sys
 sys.setrecursionlimit(10**4)
 input = sys.stdin.readline
